@@ -11,7 +11,8 @@ public class MovementPlayer : MonoBehaviour
     public Transform firepoint;
     public float fireRate = 15f;
     private float nextFireTime = 0.5f;
-    private bool canMove = false;
+    private bool canMove = true;
+    private bool canShoot = false;
     private bool isFreeMovement = false;
 
     void Start()
@@ -23,18 +24,11 @@ public class MovementPlayer : MonoBehaviour
     {
         if (canMove)
         {
-            if (isFreeMovement)
-            {
-                float moveHorizontal = Input.GetAxisRaw("Horizontal");
-                float moveVertical = Input.GetAxisRaw("Vertical");
-                movement = new Vector2(moveHorizontal, moveVertical).normalized;
-            }
-            else
-            {
-                movement = Vector2.right; // Movimiento restringido solo hacia la derecha
-            }
+            float moveHorizontal = Input.GetAxisRaw("Horizontal");
+            float moveVertical = Input.GetAxisRaw("Vertical");
+            movement = new Vector2(moveHorizontal, moveVertical).normalized;
 
-            if (Input.GetMouseButtonDown(0) && Time.time > nextFireTime)
+            if (canShoot && Input.GetMouseButtonDown(0) && Time.time > nextFireTime)
             {
                 AudioManager.Instance.PlaySFX(0);
                 Shoot();
@@ -56,9 +50,9 @@ public class MovementPlayer : MonoBehaviour
         }
     }
 
-    public void EnableMovement()
+    public void EnableShooting()
     {
-        canMove = true;
+        canShoot = true;
     }
 
     public void EnableFreeMovement()
