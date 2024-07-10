@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class CoinCount : MonoBehaviour
 {
     public static CoinCount Instance;
-    public Text coinText;
+    public TMP_Text coinText;
     public int currentCoin = 0;
 
     void Awake()

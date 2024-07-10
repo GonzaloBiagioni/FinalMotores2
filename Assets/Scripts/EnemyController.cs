@@ -17,17 +17,16 @@ public class EnemyController : MonoBehaviour
     }
     void Update()
     {
-        transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
+        transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
         if (Time.time > nextFireTime)
         {
-            AudioManager.Instance.PlaySFX(1);
+            //AudioManager.Instance.PlaySFX(1);
             Shoot();
             nextFireTime = Time.time + fireRate;
         }
     }
     void Shoot()
     {
-
         Instantiate(bulletPrefab, transform.position, Quaternion.identity);
     }
     void OnTriggerEnter2D(Collider2D otro)
@@ -36,7 +35,7 @@ public class EnemyController : MonoBehaviour
         {
             JugadorImpactado(otro.GetComponent<MovementPlayer>());
         }
-        else if (otro.CompareTag("Bala Player"))
+        else if (otro.CompareTag("BalaPlayer"))
         {
             BalaImpactada(otro.gameObject);
         }
