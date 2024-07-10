@@ -24,7 +24,7 @@ public class CanvasManager : MonoBehaviour
 
         if (hp == 0)
         {
-            AudioManager.Instance.PlaySFX(2);
+            //AudioManager.Instance.PlaySFX(2);
             SceneManager.LoadScene(3);
         }
 

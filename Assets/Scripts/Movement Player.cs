@@ -8,7 +8,8 @@ public class MovementPlayer : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
     public GameObject bala;
-    public Transform firepoint;
+    public Transform firepoint1;
+    public Transform firepoint2;
     public float fireRate = 15f;
     private float nextFireTime = 0.5f;
     private bool canMove = true;
@@ -30,7 +31,7 @@ public class MovementPlayer : MonoBehaviour
 
             if (canShoot && Input.GetMouseButtonDown(0) && Time.time > nextFireTime)
             {
-                AudioManager.Instance.PlaySFX(0);
+                //AudioManager.Instance.PlaySFX(0);
                 Shoot();
                 nextFireTime = Time.time + 2f / fireRate;
             }
@@ -39,7 +40,8 @@ public class MovementPlayer : MonoBehaviour
 
     private void Shoot()
     {
-        Instantiate(bala, firepoint.position, firepoint.rotation);
+        Instantiate(bala, firepoint2.position, firepoint2.rotation);
+        Instantiate(bala, firepoint1.position, firepoint1.rotation);
     }
 
     void FixedUpdate()
