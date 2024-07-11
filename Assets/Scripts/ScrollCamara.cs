@@ -5,35 +5,28 @@ using UnityEngine;
 public class ScrollCamara : MonoBehaviour
 {
     public Transform player;
-    public float moveSpeed = 2f;
-    public float stopPositionX;
+    public float moveSpeed = 2f; 
+    public float stopXPosition = 90f; 
+    public Vector3 offset; 
+    private bool followPlayer = false; 
 
-    private bool shouldMove = true;
-    private bool followPlayer = false;
+    void Start()
+    {
+        transform.position = player.position + offset;
+    }
 
     void Update()
     {
-        if (shouldMove)
+        if (transform.position.x < stopXPosition)
         {
-            Vector3 newPosition = new Vector3(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
-            transform.position = newPosition;
-
-            if (transform.position.x >= stopPositionX)
-            {
-                shouldMove = false;
-            }
+            transform.position += new Vector3(moveSpeed * Time.deltaTime, 0, 0);
         }
-
-        if (followPlayer)
+        else if (followPlayer)
         {
-            Vector3 targetPosition = new Vector3(player.position.x, player.position.y, transform.position.z);
+           
+            Vector3 targetPosition = player.position + offset;
             transform.position = Vector3.Lerp(transform.position, targetPosition, moveSpeed * Time.deltaTime);
         }
-    }
-
-    public void StopMoving()
-    {
-        shouldMove = false;
     }
 
     public void StartFollowingPlayer()

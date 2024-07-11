@@ -13,7 +13,7 @@ public class MovementPlayer : MonoBehaviour
     public float fireRate = 15f;
     private float nextFireTime = 0.5f;
     private bool canMove = true;
-    private bool canShoot = false;
+    private bool canShoot = true;
     private bool isFreeMovement = false;
 
     void Start()
@@ -23,31 +23,45 @@ public class MovementPlayer : MonoBehaviour
 
     void Update()
     {
+        HandleMovementInput();
+        HandleShootingInput();
+    }
+
+    private void HandleMovementInput()
+    {
         if (canMove)
         {
             float moveHorizontal = Input.GetAxisRaw("Horizontal");
             float moveVertical = Input.GetAxisRaw("Vertical");
             movement = new Vector2(moveHorizontal, moveVertical).normalized;
+        }
+    }
 
-            if (canShoot && Input.GetMouseButtonDown(0) && Time.time > nextFireTime)
-            {
-                //AudioManager.Instance.PlaySFX(0);
-                Shoot();
-                nextFireTime = Time.time + 2f / fireRate;
-            }
+    private void HandleShootingInput()
+    {
+        if (canShoot && Input.GetMouseButtonDown(0) && Time.time > nextFireTime)
+        {
+            Shoot();
+            nextFireTime = Time.time + 2f / fireRate;
         }
     }
 
     private void Shoot()
     {
-        Instantiate(bala, firepoint2.position, firepoint2.rotation);
         Instantiate(bala, firepoint1.position, firepoint1.rotation);
+        Instantiate(bala, firepoint2.position, firepoint2.rotation);
     }
 
     void FixedUpdate()
     {
         if (canMove)
         {
+            if (isFreeMovement)
+            {
+                Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 lookDir = mousePos - rb.position;
+                rb.rotation = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+            }
             rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
         }
     }

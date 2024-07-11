@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4542203117058837384}
   - component: {fileID: 3855061726943189471}
   - component: {fileID: -7146097469632404373}
+  - component: {fileID: 5201356823317532015}
   - component: {fileID: 4860869151120457680}
   m_Layer: 0
   m_Name: Enemy
@@ -27,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170825172854462830}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.838993, y: 2.6608229, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 3.838993, y: 2.6608229, z: -1}
   m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &3855061726943189471
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -100,9 +101,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   prefabMoneda: {fileID: 981686463853738264, guid: 8f7888008d8885446be645517bb4748a, type: 3}
-  tiempoDestruccion: 0
+  tiempoDestruccion: 5
   fireRate: 2
-  bulletPrefab: {fileID: 3727719665392315222, guid: c3859bc4a3583984ab59f72cfe3e7275, type: 3}
+  bulletPrefab: {fileID: 6123134361909538527, guid: 8a9cb48a3fd4ba74c8a769fdc26d860b, type: 3}
+--- !u!114 &5201356823317532015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170825172854462830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b6da79f56867a4bb65ea6c6fc34bb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &4860869151120457680
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -132,7 +145,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0038326904, y: 0.007665232}

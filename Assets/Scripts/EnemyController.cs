@@ -59,7 +59,7 @@ public class EnemyController : MonoBehaviour
     }
     void DestruirEnemigo()
     {
-        AudioManager.Instance.PlaySFX(2);
+        //AudioManager.Instance.PlaySFX(2);
         Destroy(gameObject, tiempoDestruccion);
     }
 }

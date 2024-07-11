@@ -5,12 +5,15 @@ using UnityEngine;
 public class TransitionZone : MonoBehaviour
 {
     public MovementPlayer playerController;
+    public ScrollCamara cameraController;
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            playerController.EnableFreeMovement(); 
+            playerController.EnableFreeMovement();
+            playerController.EnableShooting();
+            cameraController.StartFollowingPlayer();
         }
     }
 }
