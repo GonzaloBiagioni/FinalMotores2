@@ -17,8 +17,18 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void quitgame()
+    public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void PlayerDied()
+    {
+        ShowCursor();
+    }
+
+    private void ShowCursor()
+    {
+        Cursor.visible = true;
     }
 }

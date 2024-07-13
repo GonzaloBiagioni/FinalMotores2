@@ -7,19 +7,20 @@ public class MiniJefe : MonoBehaviour
     public Transform player;
     public float moveSpeed = 2f;
     public GameObject bulletPrefab;
+    public Transform firepoint1;
+    public Transform firepoint2;
     public float fireRate = 1f;
     public float detectionRange = 10f;
     public int maxHealth = 10;
     private int currentHealth;
     private bool isActive = false;
     private float nextFireTime = 0f;
-    public Transform firepoint1;
-    public Transform firepoint2;
-    public ScrollCamara cameraFollow; // Referencia al script de la cámara
+    private MovementPlayer playerMovement;
 
     void Start()
     {
         currentHealth = maxHealth;
+        playerMovement = FindObjectOfType<MovementPlayer>();
     }
 
     void Update()
@@ -31,6 +32,7 @@ public class MiniJefe : MonoBehaviour
 
             if (Time.time > nextFireTime)
             {
+                //AudioManager.Instance.PlaySFX(1);
                 Shoot();
                 nextFireTime = Time.time + fireRate;
             }
@@ -76,8 +78,8 @@ public class MiniJefe : MonoBehaviour
 
     void Die()
     {
+        playerMovement.EnableFreeMovement();
+        //AudioManager.Instance.PlaySFX(2);
         Destroy(gameObject);
-        player.GetComponent<MovementPlayer>().EnableFreeMovement();
-        cameraFollow.StartFollowingPlayer(); // Iniciar el seguimiento del jugador en modo top-down
     }
 }

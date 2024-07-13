@@ -19,6 +19,7 @@ public class MovementPlayer : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        HideCursor();
     }
 
     void Update()
@@ -56,14 +57,20 @@ public class MovementPlayer : MonoBehaviour
     {
         if (canMove)
         {
+            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+
             if (isFreeMovement)
             {
                 Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector2 lookDir = mousePos - rb.position;
-                rb.rotation = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+                rb.rotation = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
             }
-            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
         }
+    }
+
+    private void HideCursor()
+    {
+        Cursor.visible = false;
     }
 
     public void EnableShooting()
@@ -74,5 +81,6 @@ public class MovementPlayer : MonoBehaviour
     public void EnableFreeMovement()
     {
         isFreeMovement = true;
+        Cursor.visible = true; 
     }
 }
