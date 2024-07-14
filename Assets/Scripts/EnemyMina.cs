@@ -22,7 +22,7 @@ public class EnemyMina : MonoBehaviour
         {
             JugadorImpactado(otro.GetComponent<MovementPlayer>());
         }
-        else if (otro.CompareTag("Bala Player"))
+        else if (otro.CompareTag("BalaPlayer"))
         {
             BalaImpactada(otro.gameObject);
         }
@@ -46,7 +46,7 @@ public class EnemyMina : MonoBehaviour
     }
     void DestruirEnemigo()
     {
-        AudioManager.Instance.PlaySFX(2);
+        //AudioManager.Instance.PlaySFX(2);
         Destroy(gameObject, tiempoDestruccion);
     }
 }
