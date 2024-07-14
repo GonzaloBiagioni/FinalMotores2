@@ -5,53 +5,80 @@ using UnityEngine;
 public class EnemyTDS : MonoBehaviour
 {
     public float moveSpeed = 3f;
-    public float fireRate = 1f;
+    public float fireRate = 2f;
+    public float detectionRange = 10f;
+    public int maxHealth = 3;
     public GameObject bulletPrefab;
+    public GameObject coinPrefab;
     public Transform firePoint;
 
-    private Transform player;
-    private Rigidbody2D rb;
     private float nextFireTime;
+    private int currentHealth;
+    private Transform player;
 
     void Start()
     {
+        currentHealth = maxHealth;
+        nextFireTime = Time.time + fireRate;
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        rb = GetComponent<Rigidbody2D>();
-        nextFireTime = Time.time + Random.Range(1.5f, 2.5f);
     }
 
     void Update()
     {
-        if (player != null)
+        if (player == null) return;
+
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        if (distanceToPlayer <= detectionRange)
         {
             Vector2 direction = (player.position - transform.position).normalized;
-            rb.velocity = direction * moveSpeed;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-            rb.rotation = angle;
+            transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+
             if (Time.time >= nextFireTime)
             {
-                Shoot();
-                nextFireTime = Time.time + 1f / fireRate;
+                Shoot(direction);
+                nextFireTime = Time.time + fireRate;
             }
         }
     }
 
-    void Shoot()
+    void Shoot(Vector2 direction)
     {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.velocity = direction * moveSpeed;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("BalaPlayer"))
+        if (other.CompareTag("Player"))
         {
-            Destroy(other.gameObject);
+            DestroyEnemy();
+        }
+        else if (other.CompareTag("BalaPlayer"))
+        {
             TakeDamage();
+            Destroy(other.gameObject);
         }
     }
 
     void TakeDamage()
     {
+        currentHealth--;
+        if (currentHealth <= 0)
+        {
+            DestroyEnemy();
+        }
+    }
+
+    void DestroyEnemy()
+    {
+        if (coinPrefab != null)
+        {
+            Instantiate(coinPrefab, transform.position, Quaternion.identity);
+        }
         Destroy(gameObject);
     }
 }

@@ -15,6 +15,7 @@ public class SpawnTDS : MonoBehaviour
     private float nextSpawnTime;
     private int currentHits = 0;
     private int enemyCount = 0;
+    private bool isActive = false;
 
     void Start()
     {
@@ -23,7 +24,7 @@ public class SpawnTDS : MonoBehaviour
 
     void Update()
     {
-        if (Vector3.Distance(transform.position, player.position) <= spawnRange && enemyCount < maxEnemies)
+        if (isActive && Vector3.Distance(transform.position, player.position) <= spawnRange && enemyCount < maxEnemies)
         {
             if (Time.time >= nextSpawnTime)
             {
@@ -70,5 +71,10 @@ public class SpawnTDS : MonoBehaviour
     void DestroySpawner()
     {
         Destroy(gameObject);
+    }
+
+    public void ActivateSpawner()
+    {
+        isActive = true;
     }
 }
