@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class EnemyController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class EnemyController : MonoBehaviour
     public float fireRate = 2f;
     public GameObject bulletPrefab;
     private float nextFireTime = 0f;
+    private Vector2 moveDirection;
 
     private void Start()
     {
@@ -17,13 +19,17 @@ public class EnemyController : MonoBehaviour
     }
     void Update()
     {
-        transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
+        transform.Translate(moveDirection * moveSpeed * Time.deltaTime, Space.World);
         if (Time.time > nextFireTime)
         {
             //AudioManager.Instance.PlaySFX(1);
             Shoot();
             nextFireTime = Time.time + fireRate;
         }
+    }
+    public void SetDirection(Vector2 direction)
+    {
+        moveDirection = direction.normalized;
     }
     void Shoot()
     {
