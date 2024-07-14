@@ -185,14 +185,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918c207e7bd1d6946831810b6c5faa25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  fireRate: 1
-  detectionRange: 40
-  maxHealth: 3
-  bulletPrefab: {fileID: 6123134361909538527, guid: 8a9cb48a3fd4ba74c8a769fdc26d860b, type: 3}
-  coinPrefab: {fileID: 981686463853738264, guid: 8f7888008d8885446be645517bb4748a, type: 3}
-  firePoint: {fileID: 8897813352161117574}
-  player: {fileID: 0}
+  velocidadMovimiento: 2.5
+  rangoDisparo: 5
+  vida: 3
+  balaEnemigo: {fileID: 6123134361909538527, guid: b13f1b9c8b22aa94b8157b39cef7ee65, type: 3}
+  puntoDeDisparo: {fileID: 8897813352161117574}
+  prefabMoneda: {fileID: 981686463853738264, guid: 8f7888008d8885446be645517bb4748a, type: 3}
+  tiempoEsperaEntreDisparos: 2
 --- !u!1 &5142950756459455382
 GameObject:
   m_ObjectHideFlags: 0

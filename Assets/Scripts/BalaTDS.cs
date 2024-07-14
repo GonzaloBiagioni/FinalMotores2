@@ -4,36 +4,22 @@ using UnityEngine;
 
 public class BalaTDS : MonoBehaviour
 {
-    public float speed = 5f;
-    public int damage = 1;
-
-    private Transform player;
-    private Vector2 target;
+    public float velocidad = 10f;
+    public float tiempoVida = 3f;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        if (player != null)
-        {
-            target = player.position;
-            Vector2 direction = (target - (Vector2)transform.position).normalized;
-            GetComponent<Rigidbody2D>().velocity = direction * speed;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        }
+        Destroy(gameObject, tiempoVida);
+    }
+
+    void FixedUpdate()
+    {
+        transform.Translate(Vector3.up * velocidad * Time.deltaTime);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    void Update()
-    {
-        if (Vector2.Distance(transform.position, target) < 0.2f)
         {
             Destroy(gameObject);
         }

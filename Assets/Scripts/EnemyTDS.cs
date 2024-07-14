@@ -4,81 +4,89 @@ using UnityEngine;
 
 public class EnemyTDS : MonoBehaviour
 {
-    public float moveSpeed = 3f;
-    public float fireRate = 2f;
-    public float detectionRange = 10f;
-    public int maxHealth = 3;
-    public GameObject bulletPrefab;
-    public GameObject coinPrefab;
-    public Transform firePoint;
+    public float velocidadMovimiento = 3f;
+    public float rangoDisparo = 5f;
+    public int vida = 3;
+    public GameObject balaEnemigo;
+    public Transform puntoDeDisparo;
+    public GameObject prefabMoneda;
+    public float tiempoEsperaEntreDisparos = 2f;
 
-    private float nextFireTime;
-    private int currentHealth;
-    private Transform player;
+    private float tiempoUltimoDisparo;
 
     void Start()
     {
-        currentHealth = maxHealth;
-        nextFireTime = Time.time + fireRate;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        tiempoUltimoDisparo = Time.time;
     }
 
     void Update()
     {
-        if (player == null) return;
+        MoverHaciaJugador();
 
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        if (distanceToPlayer <= detectionRange)
+        if (Time.time - tiempoUltimoDisparo > tiempoEsperaEntreDisparos)
         {
-            Vector2 direction = (player.position - transform.position).normalized;
-            transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+            Disparar();
+            tiempoUltimoDisparo = Time.time;
 
-            if (Time.time >= nextFireTime)
+        }
+
+    }
+
+    void MoverHaciaJugador()
+    {
+        GameObject jugador = GameObject.FindGameObjectWithTag("Player");
+
+        if (jugador != null)
+        {
+            Vector3 direccion = jugador.transform.position - transform.position;
+            float distanciaAlJugador = direccion.magnitude;
+
+            if (distanciaAlJugador > rangoDisparo)
             {
-                Shoot(direction);
-                nextFireTime = Time.time + fireRate;
+                transform.Translate(direccion.normalized * velocidadMovimiento * Time.deltaTime, Space.World);
+            }
+
+            Quaternion rotacionHaciaJugador = Quaternion.LookRotation(Vector3.forward, direccion);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotacionHaciaJugador, velocidadMovimiento * Time.deltaTime);
+        }
+    }
+
+    void Disparar()
+    {
+        GameObject jugador = GameObject.FindGameObjectWithTag("Player");
+
+        if (jugador != null)
+        {
+            Vector3 direccion = jugador.transform.position - transform.position;
+            float distanciaAlJugador = direccion.magnitude;
+            if (distanciaAlJugador <= rangoDisparo)
+            {
+                Vector3 posicionDisparo = puntoDeDisparo != null ? puntoDeDisparo.position : transform.position;
+                Instantiate(balaEnemigo, posicionDisparo, transform.rotation);
             }
         }
     }
 
-    void Shoot(Vector2 direction)
+    void OnTriggerEnter2D(Collider2D otro)
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        if (rb != null)
+        if (otro.CompareTag("BalaPlayer"))
         {
-            rb.velocity = direction * moveSpeed;
+            vida--;
+
+            if (vida <= 0)
+            {
+                SoltarMonedas();
+                Destroy(gameObject);
+            }
+            Destroy(otro.gameObject);
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void SoltarMonedas()
     {
-        if (other.CompareTag("Player"))
+        if (prefabMoneda != null)
         {
-            DestroyEnemy();
+            Instantiate(prefabMoneda, transform.position, Quaternion.identity);
         }
-        else if (other.CompareTag("BalaPlayer"))
-        {
-            TakeDamage();
-            Destroy(other.gameObject);
-        }
-    }
-
-    void TakeDamage()
-    {
-        currentHealth--;
-        if (currentHealth <= 0)
-        {
-            DestroyEnemy();
-        }
-    }
-
-    void DestroyEnemy()
-    {
-        if (coinPrefab != null)
-        {
-            Instantiate(coinPrefab, transform.position, Quaternion.identity);
-        }
-        Destroy(gameObject);
     }
 }
