@@ -35453,7 +35453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4885331917691873431, guid: a424183e628052840a396ba2d7da8f3b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6908332477265566971, guid: a424183e628052840a396ba2d7da8f3b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -41053,6 +41053,7 @@ GameObject:
   - component: {fileID: 1563800283}
   - component: {fileID: 1563800282}
   - component: {fileID: 1563800281}
+  - component: {fileID: 1563800284}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -41104,7 +41105,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.029193878, y: 0.09488368}
@@ -41193,6 +41194,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1563800284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563800279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47b6f618208090a488c403bead7d5bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1567148703
 GameObject:
   m_ObjectHideFlags: 0
@@ -41953,7 +41966,7 @@ Transform:
   m_GameObject: {fileID: 1587806620}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 90.21, y: 0.07, z: -1}
+  m_LocalPosition: {x: -1.29, y: -0.01, z: -1}
   m_LocalScale: {x: 2.5, y: 2.5, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -57064,11 +57077,11 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 1587806623}
-  - {fileID: 680973905}
-  - {fileID: 2085554786}
-  - {fileID: 327057876}
-  - {fileID: 691025079}
-  - {fileID: 70091086}
-  - {fileID: 2023887846}
   - {fileID: 902373130}
   - {fileID: 18949702}
+  - {fileID: 327057876}
+  - {fileID: 2085554786}
+  - {fileID: 691025079}
+  - {fileID: 680973905}
+  - {fileID: 70091086}
+  - {fileID: 2023887846}
