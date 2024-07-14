@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyTDS : MonoBehaviour
 {
     public float velocidadMovimiento = 3f;
-    public float rangoDisparo = 5f;
+    public float rangoDisparo = 7f;
     public int vida = 3;
     public GameObject balaEnemigo;
     public Transform puntoDeDisparo;
