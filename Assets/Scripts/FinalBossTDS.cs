@@ -69,6 +69,7 @@ public class FinalBossTDS : MonoBehaviour
 
     private void Shoot()
     {
+        AudioManager.Instance.PlaySFX(4);
         Instantiate(bulletPrefab, firePoint1.position, firePoint1.rotation);
         Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
         Instantiate(bulletPrefab, firePoint3.position, firePoint3.rotation);
@@ -97,6 +98,7 @@ public class FinalBossTDS : MonoBehaviour
     private void TakeDamage()
     {
         currentHealth -= 1;
+        AudioManager.Instance.PlaySFX(5);
         if (currentHealth <= 0)
         {
             Die();
@@ -105,6 +107,7 @@ public class FinalBossTDS : MonoBehaviour
 
     private void Die()
     {
+        AudioManager.Instance.PlaySFX(6);
         Instantiate(explosionPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }

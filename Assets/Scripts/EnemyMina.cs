@@ -55,6 +55,7 @@ public class EnemyMina : MonoBehaviour
     {
         if (explosionPrefab != null)
         {
+            AudioManager.Instance.PlaySFX(6);
             Instantiate(explosionPrefab, transform.position, transform.rotation);
         }
         Destroy(gameObject, tiempoDestruccion);

@@ -9,7 +9,7 @@ public class Coin : MonoBehaviour
     {
         if (Coin.CompareTag("Player"))
         {
-            //AudioManager.Instance.PlaySFX(3);
+            AudioManager.Instance.PlaySFX(3);
             Destroy(gameObject);
             CoinCount.Instance.IncreaseCoin(value);
         }

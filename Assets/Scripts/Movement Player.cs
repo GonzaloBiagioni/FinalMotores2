@@ -42,8 +42,9 @@ public class MovementPlayer : MonoBehaviour
     {
         if (canShoot && Input.GetMouseButtonDown(0) && Time.time > nextFireTime)
         {
+            AudioManager.Instance.PlaySFX(0);
             Shoot();
-            nextFireTime = Time.time + 2f / fireRate;
+            nextFireTime = Time.time + 6f / fireRate;
         }
     }
 

@@ -21,10 +21,9 @@ public class CanvasManager : MonoBehaviour
     public void PerderHP()
     {
         hp -= 1;
-
+        AudioManager.Instance.PlaySFX(5);
         if (hp == 0)
-        {
-            //AudioManager.Instance.PlaySFX(2);
+        {           
             SceneManager.LoadScene(3);
         }
 

@@ -48,6 +48,7 @@ public class MiniJefe : MonoBehaviour
 
     void Shoot()
     {
+        AudioManager.Instance.PlaySFX(2);
         Instantiate(bulletPrefab, firepoint1.position, firepoint1.rotation);
         Instantiate(bulletPrefab, firepoint2.position, firepoint2.rotation);
     }
@@ -82,6 +83,7 @@ public class MiniJefe : MonoBehaviour
 
         if (explosionPrefab != null)
         {
+            AudioManager.Instance.PlaySFX(6);
             Instantiate(explosionPrefab, transform.position, transform.rotation);
         }
 

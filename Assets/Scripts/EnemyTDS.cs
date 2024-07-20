@@ -61,6 +61,7 @@ public class EnemyTDS : MonoBehaviour
             if (distanciaAlJugador <= rangoDisparo)
             {
                 Vector3 posicionDisparo = puntoDeDisparo != null ? puntoDeDisparo.position : transform.position;
+                AudioManager.Instance.PlaySFX(1);
                 Instantiate(balaEnemigo, posicionDisparo, transform.rotation);
             }
         }
@@ -93,6 +94,7 @@ public class EnemyTDS : MonoBehaviour
     {
         if (explosionPrefab != null)
         {
+            AudioManager.Instance.PlaySFX(6);
             Instantiate(explosionPrefab, transform.position, transform.rotation);
         }
         Destroy(gameObject);

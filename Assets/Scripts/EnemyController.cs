@@ -36,6 +36,7 @@ public class EnemyController : MonoBehaviour
 
     void Shoot()
     {
+        AudioManager.Instance.PlaySFX(1);
         Instantiate(bulletPrefab, transform.position, Quaternion.identity);
     }
 
@@ -75,6 +76,7 @@ public class EnemyController : MonoBehaviour
     {
         if (explosionPrefab != null)
         {
+            AudioManager.Instance.PlaySFX(6);
             Instantiate(explosionPrefab, transform.position, transform.rotation);
         }
         Destroy(gameObject, tiempoDestruccion);
