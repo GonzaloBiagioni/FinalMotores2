@@ -7,13 +7,13 @@ public class FinalBossTDS : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
     public float rotationSpeed = 5f;
-    public float fireRate = 1f; 
+    public float fireRate = 1f;
     public GameObject bulletPrefab;
     public Transform firePoint1;
     public Transform firePoint2;
     public Transform firePoint3;
     public Transform firePoint4;
-
+    public GameObject explosionPrefab;
     private float nextFireTime;
     private bool isActive = false;
 
@@ -31,7 +31,7 @@ public class FinalBossTDS : MonoBehaviour
             if (Time.time > nextFireTime)
             {
                 Shoot();
-                nextFireTime = Time.time + fireRate; 
+                nextFireTime = Time.time + fireRate;
             }
         }
     }
@@ -52,7 +52,7 @@ public class FinalBossTDS : MonoBehaviour
         if (player != null)
         {
             float distance = Vector2.Distance(transform.position, player.transform.position);
-            return distance < 20f; 
+            return distance < 20f;
         }
         return false;
     }
@@ -105,6 +105,7 @@ public class FinalBossTDS : MonoBehaviour
 
     private void Die()
     {
+        Instantiate(explosionPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }

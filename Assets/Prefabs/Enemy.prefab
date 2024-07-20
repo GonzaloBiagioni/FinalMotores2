@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   prefabMoneda: {fileID: 981686463853738264, guid: 8f7888008d8885446be645517bb4748a, type: 3}
+  explosionPrefab: {fileID: 1752149275115276185, guid: 3e418e321d9717c42a94906ae34564dd, type: 3}
   tiempoDestruccion: 0
   fireRate: 2
   bulletPrefab: {fileID: 6123134361909538527, guid: 8a9cb48a3fd4ba74c8a769fdc26d860b, type: 3}

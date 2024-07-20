@@ -12,6 +12,7 @@ public class MiniJefe : MonoBehaviour
     public float fireRate = 1f;
     public float detectionRange = 10f;
     public int maxHealth = 10;
+    public GameObject explosionPrefab;
     private int currentHealth;
     private bool isActive = false;
     private float nextFireTime = 0f;
@@ -32,7 +33,6 @@ public class MiniJefe : MonoBehaviour
 
             if (Time.time > nextFireTime)
             {
-                //AudioManager.Instance.PlaySFX(1);
                 Shoot();
                 nextFireTime = Time.time + fireRate;
             }
@@ -79,7 +79,12 @@ public class MiniJefe : MonoBehaviour
     void Die()
     {
         playerMovement.EnableFreeMovement();
-        //AudioManager.Instance.PlaySFX(2);
+
+        if (explosionPrefab != null)
+        {
+            Instantiate(explosionPrefab, transform.position, transform.rotation);
+        }
+
         Destroy(gameObject);
     }
 }

@@ -246,6 +246,7 @@ MonoBehaviour:
   firePoint2: {fileID: 6585921590199654272}
   firePoint3: {fileID: 8791565225780314498}
   firePoint4: {fileID: 4266259833329485796}
+  explosionPrefab: {fileID: 4591735653295867593, guid: a8856a59cbade144c80c686524c361f3, type: 3}
 --- !u!1 &7103775772928377027
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
 {
     public float moveSpeed = 1f;
     public GameObject prefabMoneda;
+    public GameObject explosionPrefab;
     public float tiempoDestruccion = 0f;
     public float fireRate = 2f;
     public GameObject bulletPrefab;
@@ -17,24 +18,27 @@ public class EnemyController : MonoBehaviour
     {
         Destroy(gameObject, 11f);
     }
+
     void Update()
     {
         transform.Translate(moveDirection * moveSpeed * Time.deltaTime, Space.World);
         if (Time.time > nextFireTime)
         {
-            //AudioManager.Instance.PlaySFX(1);
             Shoot();
             nextFireTime = Time.time + fireRate;
         }
     }
+
     public void SetDirection(Vector2 direction)
     {
         moveDirection = direction.normalized;
     }
+
     void Shoot()
     {
         Instantiate(bulletPrefab, transform.position, Quaternion.identity);
     }
+
     void OnTriggerEnter2D(Collider2D otro)
     {
         if (otro.CompareTag("Player"))
@@ -46,16 +50,19 @@ public class EnemyController : MonoBehaviour
             BalaImpactada(otro.gameObject);
         }
     }
+
     void JugadorImpactado(MovementPlayer jugador)
     {
         DestruirEnemigo();
     }
+
     void BalaImpactada(GameObject bala)
     {
         Destroy(bala);
         SoltarMonedas();
         DestruirEnemigo();
     }
+
     void SoltarMonedas()
     {
         if (prefabMoneda != null)
@@ -63,9 +70,13 @@ public class EnemyController : MonoBehaviour
             Instantiate(prefabMoneda, transform.position, Quaternion.identity);
         }
     }
+
     void DestruirEnemigo()
     {
-        //AudioManager.Instance.PlaySFX(2);
+        if (explosionPrefab != null)
+        {
+            Instantiate(explosionPrefab, transform.position, transform.rotation);
+        }
         Destroy(gameObject, tiempoDestruccion);
     }
 }

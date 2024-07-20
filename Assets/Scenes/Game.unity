@@ -1941,11 +1941,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &83716371 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4652752478525797325, guid: a7e1989f358f9a448ab67397cea072f3, type: 3}
-  m_PrefabInstance: {fileID: 6216884254197347728}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &91136873
 GameObject:
   m_ObjectHideFlags: 0
@@ -11825,11 +11820,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &446351048 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1507774211059629731, guid: a7e1989f358f9a448ab67397cea072f3, type: 3}
-  m_PrefabInstance: {fileID: 6216884254197347728}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &453639290
 GameObject:
   m_ObjectHideFlags: 0
@@ -56906,18 +56896,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 744383092823217141, guid: a7e1989f358f9a448ab67397cea072f3, type: 3}
-      propertyPath: maxHealth
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 744383092823217141, guid: a7e1989f358f9a448ab67397cea072f3, type: 3}
-      propertyPath: firepoint1
-      value: 
-      objectReference: {fileID: 83716371}
-    - target: {fileID: 744383092823217141, guid: a7e1989f358f9a448ab67397cea072f3, type: 3}
-      propertyPath: firepoint2
-      value: 
-      objectReference: {fileID: 446351048}
     - target: {fileID: 744383092823217141, guid: a7e1989f358f9a448ab67397cea072f3, type: 3}
       propertyPath: cameraFollow
       value: 

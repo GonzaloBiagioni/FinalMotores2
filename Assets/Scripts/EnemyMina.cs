@@ -6,11 +6,14 @@ public class EnemyMina : MonoBehaviour
 {
     public float moveSpeed = 0.5f;
     public GameObject prefabMoneda;
+    public GameObject explosionPrefab;
     public float tiempoDestruccion = 0f;
+
     private void Start()
     {
         Destroy(gameObject, 22f);
     }
+
     void Update()
     {
         transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
@@ -27,16 +30,19 @@ public class EnemyMina : MonoBehaviour
             BalaImpactada(otro.gameObject);
         }
     }
+
     void JugadorImpactado(MovementPlayer jugador)
     {
         DestruirEnemigo();
     }
+
     void BalaImpactada(GameObject bala)
     {
         Destroy(bala);
         SoltarMonedas();
         DestruirEnemigo();
     }
+
     void SoltarMonedas()
     {
         if (prefabMoneda != null)
@@ -44,9 +50,13 @@ public class EnemyMina : MonoBehaviour
             Instantiate(prefabMoneda, transform.position, Quaternion.identity);
         }
     }
+
     void DestruirEnemigo()
     {
-        //AudioManager.Instance.PlaySFX(2);
+        if (explosionPrefab != null)
+        {
+            Instantiate(explosionPrefab, transform.position, transform.rotation);
+        }
         Destroy(gameObject, tiempoDestruccion);
     }
 }

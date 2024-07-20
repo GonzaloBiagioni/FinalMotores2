@@ -10,6 +10,7 @@ public class EnemyTDS : MonoBehaviour
     public GameObject balaEnemigo;
     public Transform puntoDeDisparo;
     public GameObject prefabMoneda;
+    public GameObject explosionPrefab;
     public float tiempoEsperaEntreDisparos = 2f;
 
     private float tiempoUltimoDisparo;
@@ -27,9 +28,7 @@ public class EnemyTDS : MonoBehaviour
         {
             Disparar();
             tiempoUltimoDisparo = Time.time;
-
         }
-
     }
 
     void MoverHaciaJugador()
@@ -76,7 +75,7 @@ public class EnemyTDS : MonoBehaviour
             if (vida <= 0)
             {
                 SoltarMonedas();
-                Destroy(gameObject);
+                DestruirEnemigo();
             }
             Destroy(otro.gameObject);
         }
@@ -88,5 +87,14 @@ public class EnemyTDS : MonoBehaviour
         {
             Instantiate(prefabMoneda, transform.position, Quaternion.identity);
         }
+    }
+
+    void DestruirEnemigo()
+    {
+        if (explosionPrefab != null)
+        {
+            Instantiate(explosionPrefab, transform.position, transform.rotation);
+        }
+        Destroy(gameObject);
     }
 }
