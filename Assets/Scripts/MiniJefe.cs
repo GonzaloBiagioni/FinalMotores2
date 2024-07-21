@@ -13,7 +13,7 @@ public class MiniJefe : MonoBehaviour
     public float detectionRange = 10f;
     public int maxHealth = 10;
     public GameObject explosionPrefab;
-    private int currentHealth;
+    public int currentHealth;
     private bool isActive = false;
     private float nextFireTime = 0f;
     private MovementPlayer playerMovement;

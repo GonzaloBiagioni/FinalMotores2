@@ -22265,7 +22265,7 @@ Transform:
   m_GameObject: {fileID: 790845013}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 43.73, y: -11.728573, z: 0.3232897}
+  m_LocalPosition: {x: 43.17, y: -11.728573, z: 0.3232897}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22933,6 +22933,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &827896560 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7263269614735863791, guid: a424183e628052840a396ba2d7da8f3b, type: 3}
+  m_PrefabInstance: {fileID: 1379695744}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &837495193
 GameObject:
   m_ObjectHideFlags: 0
@@ -35913,6 +35924,10 @@ PrefabInstance:
       propertyPath: exitTrigger
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3368297733347376304, guid: a424183e628052840a396ba2d7da8f3b, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 4885331917691873431, guid: a424183e628052840a396ba2d7da8f3b, type: 3}
       propertyPath: m_Name
       value: Jefe
@@ -35964,7 +35979,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4262874966563753209, guid: a424183e628052840a396ba2d7da8f3b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1692890820}
   m_SourcePrefab: {fileID: 100100000, guid: a424183e628052840a396ba2d7da8f3b, type: 3}
 --- !u!1 &1387513082
 GameObject:
@@ -42560,7 +42578,7 @@ Transform:
   m_GameObject: {fileID: 1587806620}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -1.29, y: -0.01, z: -1}
+  m_LocalPosition: {x: -1.8, y: 0, z: -1}
   m_LocalScale: {x: 2.5, y: 2.5, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -43883,7 +43901,7 @@ Transform:
   m_GameObject: {fileID: 1627243203}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 48.49, y: -11.728573, z: 0.3232897}
+  m_LocalPosition: {x: 47.23, y: -11.728573, z: 0.3232897}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45854,6 +45872,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1692890815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4262874966563753209, guid: a424183e628052840a396ba2d7da8f3b, type: 3}
+  m_PrefabInstance: {fileID: 1379695744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1692890820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692890815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 885b577183dd12e4798ba913e29289fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthImage: {fileID: 827896560}
 --- !u!1 &1699962753
 GameObject:
   m_ObjectHideFlags: 0
@@ -58086,7 +58122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3897338991485569038, guid: a7e1989f358f9a448ab67397cea072f3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 53.385403
+      value: 53
       objectReference: {fileID: 0}
     - target: {fileID: 3897338991485569038, guid: a7e1989f358f9a448ab67397cea072f3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -58156,6 +58192,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Firepoint1
       objectReference: {fileID: 0}
+    - target: {fileID: 6511950872803872444, guid: a7e1989f358f9a448ab67397cea072f3, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 7685374020251755076, guid: a7e1989f358f9a448ab67397cea072f3, type: 3}
       propertyPath: m_Name
       value: Firepoint2
