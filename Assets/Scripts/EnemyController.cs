@@ -7,12 +7,14 @@ public class EnemyController : MonoBehaviour
 {
     public float moveSpeed = 1f;
     public GameObject prefabMoneda;
+    public GameObject prefabConsumibleVida;
     public GameObject explosionPrefab;
     public float tiempoDestruccion = 0f;
     public float fireRate = 2f;
     public GameObject bulletPrefab;
     private float nextFireTime = 0f;
     private Vector2 moveDirection;
+    public float probabilidadDropVida = 0.2f; 
 
     private void Start()
     {
@@ -60,13 +62,17 @@ public class EnemyController : MonoBehaviour
     void BalaImpactada(GameObject bala)
     {
         Destroy(bala);
-        SoltarMonedas();
+        SoltarObjeto();
         DestruirEnemigo();
     }
 
-    void SoltarMonedas()
+    void SoltarObjeto()
     {
-        if (prefabMoneda != null)
+        if (Random.value < probabilidadDropVida && prefabConsumibleVida != null)
+        {
+            Instantiate(prefabConsumibleVida, transform.position, Quaternion.identity);
+        }
+        else if (prefabMoneda != null)
         {
             Instantiate(prefabMoneda, transform.position, Quaternion.identity);
         }

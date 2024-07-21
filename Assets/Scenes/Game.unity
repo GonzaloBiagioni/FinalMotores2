@@ -2476,6 +2476,7 @@ MonoBehaviour:
   spawnIntervalMax: 6
   hitsToDestroy: 30
   maxEnemies: 100
+  explosionPrefab: {fileID: 7645561810492698735, guid: 47d2290aa90d60545a9ceecc3e5db291, type: 3}
 --- !u!61 &108136280
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3208,8 +3209,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 102.95007, y: -0.00012207031}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 22.8036, y: 12.9043}
+  m_SizeDelta: {x: 68.6805, y: 74.1909}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &134145025
 GameObject:
@@ -21186,8 +21187,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -102.94995, y: -0.00012207031}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -118.6097, y: 12.9043}
+  m_SizeDelta: {x: 68.6805, y: 74.1909}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &748476633
 MonoBehaviour:
@@ -22437,7 +22438,7 @@ Transform:
   m_GameObject: {fileID: 790845013}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 43.17, y: -11.728573, z: 0.3232897}
+  m_LocalPosition: {x: 42.44, y: -11.728573, z: 0.3232897}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26112,8 +26113,8 @@ Transform:
   m_GameObject: {fileID: 946921876}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.9671, y: 0, z: 0}
+  m_LocalScale: {x: 1.1449, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2085554786}
@@ -37770,7 +37771,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 190, y: -192}
+  m_AnchoredPosition: {x: 188, y: -161.87}
   m_SizeDelta: {x: 305.90002, y: 73.73462}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1430516087
@@ -38993,6 +38994,7 @@ MonoBehaviour:
   spawnIntervalMax: 6
   hitsToDestroy: 30
   maxEnemies: 100
+  explosionPrefab: {fileID: 7645561810492698735, guid: 47d2290aa90d60545a9ceecc3e5db291, type: 3}
 --- !u!61 &1493141842
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39172,6 +39174,7 @@ MonoBehaviour:
   spawnIntervalMax: 6
   hitsToDestroy: 30
   maxEnemies: 100
+  explosionPrefab: {fileID: 7645561810492698735, guid: 47d2290aa90d60545a9ceecc3e5db291, type: 3}
 --- !u!61 &1495191158
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42922,7 +42925,7 @@ Transform:
   m_GameObject: {fileID: 1587806620}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 78.26, y: -0, z: -1}
+  m_LocalPosition: {x: -1.8, y: -0, z: -1}
   m_LocalScale: {x: 2.5, y: 2.5, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -44247,7 +44250,7 @@ Transform:
   m_GameObject: {fileID: 1627243203}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 47.23, y: -11.728573, z: 0.3232897}
+  m_LocalPosition: {x: 46, y: -11.728573, z: 0.3232897}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -51639,8 +51642,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.5500488, y: -0.00012207031}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -47.5253, y: 12.9043}
+  m_SizeDelta: {x: 68.6805, y: 74.1909}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1898983111
 MonoBehaviour:
@@ -57970,6 +57973,7 @@ MonoBehaviour:
   spawnIntervalMax: 6
   hitsToDestroy: 30
   maxEnemies: 100
+  explosionPrefab: {fileID: 7645561810492698735, guid: 47d2290aa90d60545a9ceecc3e5db291, type: 3}
 --- !u!61 &2132655963
 BoxCollider2D:
   m_ObjectHideFlags: 0

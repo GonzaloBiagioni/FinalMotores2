@@ -10,8 +10,10 @@ public class EnemyTDS : MonoBehaviour
     public GameObject balaEnemigo;
     public Transform puntoDeDisparo;
     public GameObject prefabMoneda;
+    public GameObject prefabConsumibleVida; 
     public GameObject explosionPrefab;
     public float tiempoEsperaEntreDisparos = 2f;
+    public float probabilidadDropVida = 0.2f;
 
     private float tiempoUltimoDisparo;
 
@@ -75,16 +77,20 @@ public class EnemyTDS : MonoBehaviour
 
             if (vida <= 0)
             {
-                SoltarMonedas();
+                SoltarObjeto();
                 DestruirEnemigo();
             }
             Destroy(otro.gameObject);
         }
     }
 
-    void SoltarMonedas()
+    void SoltarObjeto()
     {
-        if (prefabMoneda != null)
+        if (Random.value < probabilidadDropVida && prefabConsumibleVida != null)
+        {
+            Instantiate(prefabConsumibleVida, transform.position, Quaternion.identity);
+        }
+        else if (prefabMoneda != null)
         {
             Instantiate(prefabMoneda, transform.position, Quaternion.identity);
         }

@@ -6,8 +6,10 @@ public class EnemyMina : MonoBehaviour
 {
     public float moveSpeed = 0.5f;
     public GameObject prefabMoneda;
+    public GameObject prefabConsumibleVida;
     public GameObject explosionPrefab;
     public float tiempoDestruccion = 0f;
+    public float probabilidadDropVida = 0.1f;
 
     private void Start()
     {
@@ -39,13 +41,17 @@ public class EnemyMina : MonoBehaviour
     void BalaImpactada(GameObject bala)
     {
         Destroy(bala);
-        SoltarMonedas();
+        SoltarObjeto();
         DestruirEnemigo();
     }
 
-    void SoltarMonedas()
+    void SoltarObjeto()
     {
-        if (prefabMoneda != null)
+        if (Random.value < probabilidadDropVida && prefabConsumibleVida != null)
+        {
+            Instantiate(prefabConsumibleVida, transform.position, Quaternion.identity);
+        }
+        else if (prefabMoneda != null)
         {
             Instantiate(prefabMoneda, transform.position, Quaternion.identity);
         }

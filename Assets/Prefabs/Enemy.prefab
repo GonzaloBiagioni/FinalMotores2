@@ -103,10 +103,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   prefabMoneda: {fileID: 981686463853738264, guid: 8f7888008d8885446be645517bb4748a, type: 3}
+  prefabConsumibleVida: {fileID: 7351654198937628766, guid: 2bb798d6085798c4a939e05d730f335e, type: 3}
   explosionPrefab: {fileID: 1752149275115276185, guid: 3e418e321d9717c42a94906ae34564dd, type: 3}
   tiempoDestruccion: 0
   fireRate: 2
   bulletPrefab: {fileID: 6123134361909538527, guid: 8a9cb48a3fd4ba74c8a769fdc26d860b, type: 3}
+  probabilidadDropVida: 0.2
 --- !u!114 &5201356823317532015
 MonoBehaviour:
   m_ObjectHideFlags: 0
