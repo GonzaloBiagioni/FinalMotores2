@@ -11,7 +11,7 @@ public class SpawnTDS : MonoBehaviour
     public float spawnIntervalMax = 6f;
     public int hitsToDestroy = 5;
     public int maxEnemies = 10;
-
+    public GameObject explosionPrefab;
     private float nextSpawnTime;
     private int currentHits = 0;
     private int enemyCount = 0;
@@ -62,6 +62,8 @@ public class SpawnTDS : MonoBehaviour
     void TakeDamage()
     {
         currentHits++;
+        AudioManager.Instance.PlaySFX(5);
+
         if (currentHits >= hitsToDestroy)
         {
             DestroySpawner();
@@ -70,6 +72,12 @@ public class SpawnTDS : MonoBehaviour
 
     void DestroySpawner()
     {
+        if (explosionPrefab != null)
+        {
+            Instantiate(explosionPrefab, transform.position, transform.rotation);
+        }
+
+        AudioManager.Instance.PlaySFX(6); // Reproduce el sonido de destrucción
         Destroy(gameObject);
     }
 
